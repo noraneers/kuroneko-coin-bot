@@ -1,0 +1,38 @@
+version: '3.3'
+services:
+  bot:
+    build: .
+    env_file: ./.env
+    restart: on-failure
+    environment:
+      - NODE_ENV=test
+    networks:
+      bot-network:
+    tty: true
+    stdin_open: true
+    depends_on:
+      - mongo
+    ports:
+        - 9000:9000
+    links:
+      - mongo
+    volumes:
+      - ./package.json:/app/package.json
+      - ./test:/app/test
+      - ./index.js:/app/index.js
+      - ./src:/app/src
+      - ./locales:/app/locales
+  mongo:
+    restart: always
+    image: mongo
+    networks:
+      bot-network:
+    command:
+      --dbpath=/data/db
+      --rest
+    volumes:
+      - "./db:/data/db"
+    ports:
+        - 27017:27017
+networks:
+  bot-network:

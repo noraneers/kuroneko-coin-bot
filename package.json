@@ -1,0 +1,60 @@
+{
+  "name": "kuroneko-bot",
+  "version": "0.0.1",
+  "description": "slack bot for coin economy",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:developersjp/kuroneko.git"
+  },
+  "scripts": {
+    "test": "echo -e 'running unit test \n ' && nyc mocha -w --recursive",
+    "start": "if test \"$NODE_ENV\" = \"test\"; then nodemon --exec \"nyc mocha --recursive\"; else run-p watch:**; fi",
+    "watch": "npm-run-all --parallel watch:**",
+    "watch:dev:nodemon": "nodemon index.js --ignore static/",
+    "build": "NODE_ENV=production && parcel build static/index.js -d public --public-url ./"
+  },
+  "keywords": [
+    "slack",
+    "bot"
+  ],
+  "author": "yahsan2",
+  "license": "MIT",
+  "bin": {
+    "nodemon": "node_modules/nodemon/bin/nodemon.js"
+  },
+  "dependencies": {
+    "bip39": "^2.4.0",
+    "botkit": "^0.6.6",
+    "connect-mongo": "^2.0.1",
+    "dotenv": "^4.0.0",
+    "i18n": "^0.8.3",
+    "moment": "^2.20.1",
+    "mongoose": "^4.11.8",
+    "mongoose-unique-array": "^0.2.0",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-transform-imports": "^1.4.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "botkit-mock": "^0.1.2",
+    "chai": "^4.1.1",
+    "eslint": "^4.17.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.5.0",
+    "mockgoose": "^7.3.3",
+    "nodemon": "^1.13.3",
+    "npm-run-all": "^4.1.2",
+    "nyc": "^11.1.0",
+    "should": "^13.0.1"
+  }
+}

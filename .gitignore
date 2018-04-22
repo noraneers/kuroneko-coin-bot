@@ -1,0 +1,8 @@
+node_modules
+.*swp
+*.log
+db/*
+!db/.gitkeep
+.env
+.nyc_output
+.DS_Store
