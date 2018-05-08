@@ -1,0 +1,24 @@
+{
+  "balance": {
+    "success": "Balance of %s： `%s %s`"
+  },
+  "transaction": {
+    "success": "%s から %s へ `%s %s`が送られました。",
+    "error": "予期せぬエラーです。管理者にお伝えください。:%s",
+    "errors": {
+      "myself": "自分自身へは送信できません。",
+      "shortage": "残高が不足しています。",
+      "notNumber": "値が数値以外になっています。"
+    }
+  },
+  "tip": {
+    "error": "SKNの送信が正常に行われませんでした。",
+    "confirm": "%s から %s へ %s %s送ろうとしています。",
+    "success": "%s から %s へ %s %sが送られました。",
+    "notValid": "有効なビットコインアドレスを入力してください！"
+  },
+  "members": {
+    "amount": "%s: `%s %s`"
+  },
+  "help": "help"
+}

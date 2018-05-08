@@ -1,9 +1,9 @@
 {
 	"balance": {
-		"success": "Balance of %s： `%s %s`"
+		"success": "%s がもっている :niboshi: は ： `%s %s` でっせ"
 	},
 	"transaction": {
-		"success": "%s から %s へ `%s %s`が送られました。",
+		"success": "%s から %s へ :niboshi: `%s %s` とどけたよ",
 		"error": "予期せぬエラーです。管理者にお伝えください。:%s",
 		"errors": {
 			"myself": "自分自身へは送信できません。",
@@ -13,12 +13,12 @@
 	},
 	"tip": {
 		"error": "SKNの送信が正常に行われませんでした。",
-		"confirm": "%s から %s へ %s %s送ろうとしています。",
-		"success": "%s から %s へ %s %sが送られました。",
+		"confirm": "%s から %s へ %s %s の :niboshi: を送ろうとしてるよ。",
+		"success": "%s から %s へ %s %s の :niboshi: が送られました。",
 		"notValid": "有効なビットコインアドレスを入力してください！"
 	},
 	"members": {
 		"amount": "%s: `%s %s`"
 	},
-	"help": "help"
+	"help": "`@APP_NAME balance [@user]`\n```\n[@user] 確認したい slack ユーザー (オプション)\n```\n```\n現在、預けている COIN_UNIT の保有量を確認ができます。\n[@user] で指定したユーザーの COIN_UNIT も確認可能です。\n```\n`@APP_NAME tip [@user ※] [amount ※] [message]`\n```\n[@user] tip を送りたい slack ユーザー (必須)\n[amount] 送りたい COIN_UNIT 量 (必須)\n[message] tip 時に合わせて送られるメッセージ (オプション)\n```\n```\n@APP_NAMEを通して、COIN_UNIT を贈ることができます。\n預かっている COIN_UNIT から、相手に指定の量 COIN_UNIT 送られます。\n```"
 }

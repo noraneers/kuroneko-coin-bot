@@ -1,5 +1,5 @@
-const {BOT_CONFIG, SLACK_TOKEN, SLACK_DEBUG, SLACK_WEBHOOK_URL} = require("./../config");
-const winston = require('winston');
+const {BOT_CONFIG, SLACK_TOKEN, SLACK_DEBUG, SLACK_WEBHOOK_URL} = require("./../config")
+const winston = require('winston')
 
 let controller, bot;
 
@@ -41,23 +41,8 @@ if(process.env.NODE_ENV == 'test'){
   })
 }
 
-module.exports = (isWebhook=true)=>{
-  bot.startRTM((err) => {
-    if (err) {
-      throw new Error(err);
-    }
-  })
-
-  bot.configureIncomingWebhook({
-    url: SLACK_WEBHOOK_URL
-  })
-
-  controller.on('rtm_reconnect_failed',function(bot) {
-    console.log('\n\n*** '+moment().format() + ' ** Unable to automatically reconnect to rtm after a closed conection.')
-  })
-  return {
-    bot: bot,
-    controller: controller,
-    botApi: bot.api,
-  }
+module.exports = {
+  bot: bot,
+  controller: controller,
+  botApi: bot.api,
 }

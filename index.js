@@ -19,6 +19,22 @@ const commands = [
 ]
 
 if(commands && commands.length > 0){
-  const {bot, controller} = require(path.join(__dirname, 'src', 'bot'))()
+  const { bot, controller } = require(path.join(__dirname, 'src', 'bot'))
+  const { SLACK_WEBHOOK_URL } = require("./config");
+
+  bot.startRTM((err) => {
+    if (err) {
+      throw new Error(err);
+    }
+  })
+
+  bot.configureIncomingWebhook({
+    url: SLACK_WEBHOOK_URL
+  })
+
+  controller.on('rtm_reconnect_failed',function(bot) {
+    console.log('\n\n*** '+moment().format() + ' ** Unable to automatically reconnect to rtm after a closed conection.')
+  })
+
   commands.forEach( (command, index)=> require(`./src/handlers/${command}`)(controller) );
 }
