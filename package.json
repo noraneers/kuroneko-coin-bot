@@ -12,7 +12,8 @@
     "start": "if test \"$NODE_ENV\" = \"test\"; then nodemon --exec \"nyc mocha --recursive\"; else run-p watch:**; fi",
     "watch": "npm-run-all --parallel watch:**",
     "watch:dev:nodemon": "nodemon index.js --ignore static/",
-    "build": "NODE_ENV=production && parcel build static/index.js -d public --public-url ./"
+    "build": "NODE_ENV=production && parcel build static/index.js -d public --public-url ./",
+    "production": "node index.js"
   },
   "keywords": [
     "slack",
