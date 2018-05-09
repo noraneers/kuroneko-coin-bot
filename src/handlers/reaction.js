@@ -15,7 +15,7 @@ const botUtil = require('./botUtil')
 module.exports = (controller) => {
   controller.on(['reaction_added'], (bot, message) => {
     const emojiKey = message.reaction;
-    // if( !Object.keys(Emoji).some((key) => key === emojiKey) ) return
+    if( !Object.keys(Emoji).some((key) => key === emojiKey) ) return
 
     const senderId = message.user;
     const recieverId = message.item_user;
