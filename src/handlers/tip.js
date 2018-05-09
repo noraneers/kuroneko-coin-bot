@@ -25,13 +25,13 @@ module.exports = (controller) => {
       const amount = Number(message.match[2]);
       const txMessage = message.match[3] || "no message";
 
-      const confirmText = __('tip.confirm', UserMethods.formatUser(senderId), UserMethods.formatUser(recieverId), amount);
+      const confirmText = __('tip.confirm', UserMethods.formatUser(senderId), UserMethods.formatUser(recieverId), amount, process.env.COIN_UNIT);
 
       bot.replyAndUpdate(message, confirmText, (err, scripts, updateResponse)=> {
         const smartpay = new SmartPay(senderId, recieverId, amount, `tip:${txMessage}`)
         smartpay.payOffChain().then((result) => {
           const [sender, reciever] = result.users;
-          const successText = __('tip.success', UserMethods.formatUser(senderId), UserMethods.formatUser(recieverId), amount);
+          const successText = __('tip.success', UserMethods.formatUser(senderId), UserMethods.formatUser(recieverId), amount, process.env.COIN_UNIT);
           updateResponse(successText, console.error);
 
           // TODO Write test LATER
