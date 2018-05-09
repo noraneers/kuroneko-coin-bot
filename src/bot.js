@@ -26,7 +26,6 @@ if(process.env.NODE_ENV == 'test'){
   const Botkit = require("botkit");
 
   controller = Botkit.slackbot({
-    hostname: '0.0.0.0',
     clientId: BOT_CONFIG.clientId,
     clientSecret: BOT_CONFIG.clientSecret,
     scopes: ['bot'],
