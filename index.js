@@ -15,6 +15,7 @@ const commands = [
   'reaction',
   'rain',
   'help',
+  'notification',
   'member'
 ]
 

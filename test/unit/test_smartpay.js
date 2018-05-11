@@ -6,7 +6,6 @@ const chai = require('chai')
 let expect = chai.expect;
 let should = chai.should();
 const { mongooseUtils } = require(`../test_utils`)
-const SakanaCoin = require(`${basePath}/src/coin`)
 
 // required packages
 const mongoose = require("mongoose");
@@ -74,14 +73,6 @@ describe('SmartPay Tests:', () => {
         sender.balance.should.equal( generalUser.balance - this.amount )
       }).timeout(defaultTimeout)
 
-      it.only('should return the user\'s wallet balance added by the amount', async() => {
-        const smartpay = new SmartPay(this.user0.id, this.user0.id, this.amount)
-        const beforeBal = await SakanaCoin.methods.balanceOf(this.user0.walletAddresses[0]).call()
-        const result = await smartpay.payOnChain()
-        const [sender, reciever] = result.users;
-        const afterBal = await SakanaCoin.methods.balanceOf(this.user0.walletAddresses[0]).call()
-        UserMethods.getCoinByWei(afterBal).should.equal( UserMethods.getCoinByWei(beforeBal) + this.amount )
-      }).timeout(defaultTimeout)
 
       afterEach(mongooseUtils.dropAndClose)
     })

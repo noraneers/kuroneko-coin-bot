@@ -8,20 +8,20 @@ if(process.env.NODE_ENV == 'test'){
 
   // TODO: validation for test
 
-  // controller = Botmock({
-  //   disable_startup_messages: true,
-  //   debug: false,
-  //   logger: {
-  //     log: ()=>{}
-  //   }
-  // })
+  controller = Botmock({
+    disable_startup_messages: true,
+    debug: false,
+    logger: {
+      log: ()=>{}
+    }
+  })
 
-  // bot = controller.spawn({
-  //   type: 'slack',
-  //   afterProcessingUserMessageTimeout: 2300,
-  // })
-  controller = null
-  bot = null
+  bot = controller.spawn({
+    type: 'slack',
+    afterProcessingUserMessageTimeout: 2300,
+  })
+  // controller = null
+  // bot = null
 }else{
   const Botkit = require("botkit");
 

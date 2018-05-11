@@ -35,6 +35,10 @@ const UserSchema = new Schema({
   name: {
     type: String,
   },
+  notification: {
+    type: Boolean,
+    default: true
+  },
   balance: {
     type: Number,
     default: 10000

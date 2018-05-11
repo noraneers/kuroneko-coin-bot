@@ -1,7 +1,7 @@
 const basePath = '..'
 
 const mongoose = require("mongoose");
-const { mongoUri } = require(`${basePath}/config`)
+const { MONGO_URI } = require(`${basePath}/config`)
 const { User } = require(`${basePath}/src/models/User`)
 
 const seedUsers = [{
@@ -101,7 +101,7 @@ const mongooseUtils = {
     });
   },
   connect(){
-    mongoose.connect(mongoUri + 'testDB', { useMongoClient: true }, (err) => {if (err) throw err})
+    mongoose.connect(MONGO_URI + 'testDB', { useMongoClient: true }, (err) => {if (err) throw err})
   },
   dropAndClose(done){
     if(!mongoose.connection.db) done()

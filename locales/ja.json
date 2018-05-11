@@ -17,6 +17,11 @@
 		"success": "%s から %s へ %s %s の :niboshi: が送られました。",
 		"notValid": "有効なビットコインアドレスを入力してください！"
 	},
+	"notification": {
+		"error": "正常に設定が行われませんでした。",
+		"success": "通知設定を `%s` に変更しました。",
+		"status": "通知設定は `%s` です。"
+	},
 	"members": {
 		"amount": "%s: `%s %s`"
 	},

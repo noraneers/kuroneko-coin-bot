@@ -21,16 +21,15 @@ class BotUtil {
     const txText = __('transaction.success', UserMethods.formatUser(senderId), UserMethods.formatUser(recieverId), amount, process.env.COIN_UNIT)
     const balanceText = this.getBlanceText(user);
     const permalink = this.getPermalink(message)
-    this.replyOnBotChannel(bot, message, [titleText, txText, balanceText, permalink], user.id)
+    this.replyOnBotChannel(bot, message, [titleText, txText, balanceText, permalink], user)
   }
 
   replyBlanceOnBotChannel(bot, message, user){
     const text = this.getBlanceText(user);
-    this.replyOnBotChannel(bot, message, text, user.id)
+    this.replyOnBotChannel(bot, message, text, user)
   }
 
-  replyOnBotChannel(bot, message, texts, user_or_userId=false){
-    const userId = (user_or_userId.id && user_or_userId.id) || user_or_userId || message.user;
+  replyOnBotChannel(bot, message, texts, user){
     texts = Array.isArray(texts)? texts : [texts];
     return new Promise((resolve, reject) => {
       bot.api.im.list({},(err,response)=> {
@@ -41,7 +40,7 @@ class BotUtil {
         const ims = response && response.ims
         for (var i = ims.length - 1; i >= 0; i--) {
           const im = ims[i];
-          if (im.user == userId) {
+          if (user.id && user.id == im.user && user.notification) {
             bot.reply({
               'channel': im.id
             }, texts.join('\n'))
