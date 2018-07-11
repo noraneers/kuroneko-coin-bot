@@ -21,7 +21,9 @@ class BotUtil {
     const txText = __('transaction.success', UserMethods.formatUser(senderId), UserMethods.formatUser(recieverId), amount, process.env.COIN_UNIT)
     const balanceText = this.getBlanceText(user);
     const permalink = this.getPermalink(message)
-    this.replyOnBotChannel(bot, message, [titleText, txText, balanceText, permalink], user)
+    if (amount > 1) {
+      this.replyOnBotChannel(bot, message, [titleText, txText, balanceText, permalink], user)
+    }
   }
 
   replyBlanceOnBotChannel(bot, message, user){
