@@ -16,6 +16,7 @@ const commands = [
   'rain',
   'help',
   'notification',
+  'tl_all',
   'member'
 ]
 
@@ -39,3 +40,4 @@ if(commands && commands.length > 0){
 
   commands.forEach( (command, index)=> require(`./src/handlers/${command}`)(controller) );
 }
+
