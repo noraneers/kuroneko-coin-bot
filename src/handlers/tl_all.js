@@ -7,17 +7,21 @@ const botUtil = require('./botUtil')
 module.exports = (controller) => {
   controller.on('ambient', (bot, message)=> {
     if(message.channel != 'CDQMKBULA'){
-      bot.reply({
-        'channel': 'CDQMKBULA'
-      }, botUtil.getPermalink(message), (err, response)=> {
-        // bot.createConversation(response.message, (e, convo)=> {
-        //     // create a path for when a user says YES
-        //   convo.addMessage({
-        //     text: 'You said yes! How wonderful.'
-        //   },'yes_thread')
-        //   convo.activate()
-        // })
-      })
+      // bot.api.channels.info({
+      //   channel: message.channel,
+      // }, (e, res) => {
+        bot.reply({
+          'channel': 'CDQMKBULA'
+        }, botUtil.getPermalink(message), (err, response)=> {
+          // bot.createConversation(response.message, (e, convo)=> {
+          //     // create a path for when a user says YES
+          //   convo.addMessage({
+          //     text: 'You said yes! How wonderful.'
+          //   },'yes_thread')
+          //   convo.activate()
+          // })
+        })
+      // });
     }
 
 
